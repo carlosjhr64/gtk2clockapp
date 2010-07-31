@@ -1,0 +1,35 @@
+#!/usr/bin/env ruby
+require 'rubygems'
+gem 'gtk2applib', '~> 6'
+require 'gtk2applib'
+
+application = {
+	:name		=> 'Gtk2ClockApp',
+	:tooltip	=> 'Clock',
+	:icon_name	=> 'Clock',
+	:FILE		=> __FILE__,
+}
+Gtk2App.init(application)
+
+about = {
+	:authors	=> ['carlosjhr64@gmail.com'],
+	:website	=> 'http://ruby-gnome-apps.blogspot.com',
+	:website_label	=> 'Ruby-Gnome Clock App',
+	:license	=> 'GPL',
+	:copyright	=> '2010-07-18 11:09:52',
+	}
+Gtk2App.main_window(about) do |window|
+  window.modify_bg(Gtk::STATE_NORMAL, Configuration::BACKGROUND_COLOR)
+
+  require 'gtk2clockapp'
+  fixed = Gtk2ClockApp::Fixed.new
+  window.add( fixed )
+
+  Gtk.timeout_add(Configuration::UPDATE_TIME){ # a minute
+    fixed.update
+  }
+
+end
+
+Gtk2App.finalize
+
