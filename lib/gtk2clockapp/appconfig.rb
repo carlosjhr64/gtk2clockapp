@@ -1,5 +1,12 @@
+module Gtk2AppLib
 module Configuration
-  WEATHER_URL	= 'http://www.weather.com/weather/today/Sun+Valley+NV+89433'
+
+  # Need the weather.com url for your area,  your area code should be enough
+  AREA_CODE	= '89433' # <= 89433 is for Sun Valley, NV. Edit it your area code.
+  WEATHER_URL	= 'http://www.weather.com/weather/today/' + AREA_CODE
+
+  # You should not need to worry about these below, but just in case...
+
   TEMPERATURE_MATCH = /(\d+)\s*\&deg\;/
 
   UPDATE_TIME = 60_000 # in milliseconds
@@ -22,9 +29,11 @@ module Configuration
   POSITION	= {
 	:day	=> [20,20],
 	:date	=> [20,110],
-	:time	=> [25,220],
-	:temp0	=> [500,10],
-	:temp3	=> [500,80],
-	:temp4	=> [500,150],
+	:time	=> [20,220],
+	:temp0	=> [575,10],
+	:temp3	=> [575,80],
+	:temp4	=> [575,150],
   }
+
+end
 end

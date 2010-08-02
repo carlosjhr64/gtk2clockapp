@@ -1,35 +1,37 @@
 #!/usr/bin/env ruby
 require 'rubygems'
-gem 'gtk2applib', '~> 6'
+gem 'gtk2applib', '~> 7'
 require 'gtk2applib'
 
-application = {
-	:name		=> 'Gtk2ClockApp',
-	:tooltip	=> 'Clock',
-	:icon_name	=> 'Clock',
-	:FILE		=> __FILE__,
-}
-Gtk2App.init(application)
+program = Gtk2AppLib::Program.new( {
+        :name           => 'Gtk2ClockApp',
+        :tooltip        => 'Clock',
+        :icon_name      => 'Clock',
+        :FILE           => __FILE__,
+        :lock           => "Proceed anyways?",
+        } )
 
 about = {
-	:authors	=> ['carlosjhr64@gmail.com'],
-	:website	=> 'http://ruby-gnome-apps.blogspot.com',
-	:website_label	=> 'Ruby-Gnome Clock App',
-	:license	=> 'GPL',
-	:copyright	=> '2010-07-18 11:09:52',
-	}
-Gtk2App.main_window(about) do |window|
+        :authors        => ['carlosjhr64@gmail.com'],
+        :website        => 'http://ruby-gnome-apps.blogspot.com/search/label/Clock',
+        :website_label  => 'Ruby-Gnome Apps',
+        :license        => 'GPL',
+        :copyright      => '2010-08-02 10:26:30',
+        }
+
+program.window(about) do |window|
+  include Gtk2AppLib
+begin
+
   window.modify_bg(Gtk::STATE_NORMAL, Configuration::BACKGROUND_COLOR)
 
   require 'gtk2clockapp'
-  fixed = Gtk2ClockApp::Fixed.new
-  window.add( fixed )
+  fixed = Gtk2ClockApp::Fixed.new( window )
 
-  Gtk.timeout_add(Configuration::UPDATE_TIME){ # a minute
-    fixed.update
-  }
-
+  Gtk.timeout_add(Configuration::UPDATE_TIME){ fixed.update }
+rescue Exception
+Gtk2AppLib.puts_bang!
+end
 end
 
-Gtk2App.finalize
-
+program.finalize

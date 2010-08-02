@@ -2,8 +2,8 @@ require 'net/http'
 require 'timeout'
 
 module Gtk2ClockApp
-  class Fixed < Gtk2App::Fixed
-    include Configuration
+  class Fixed < Gtk2AppLib::Fixed
+    include Gtk2AppLib::Configuration
 
     def http_get(url)
       uri = URI.parse(url)
@@ -43,7 +43,7 @@ module Gtk2ClockApp
           @count = 0
         end
       rescue
-        puts_bang!
+        Gtk2AppLib.puts_bang!
         current[:temp0] = 'N/A'
         current[:temp3] = nil
         current[:temp4] = nil
@@ -58,9 +58,10 @@ module Gtk2ClockApp
         if current[key] && !(@previous[key] == current[key]) then
           tag = key.to_s
 	  remove_tag(tag)
-          x,y = POSITION[key]
-          OPTIONS[:font] = (key==:time)? FONT[:large]: FONT[:normal]
-          put(current[key], x, y, tag)
+          self.options[:font] = (key==:time)? FONT[:large]: FONT[:normal]
+puts POSITION[key].join(', ')
+          x_coord, y_coord = POSITION[key]
+          put(current[key], x_coord, y_coord, [tag])
           @previous[key] = current[key]
         end
       }
@@ -69,9 +70,10 @@ module Gtk2ClockApp
     end
 
     def initialize(pack=nil)
-      super(nil, pack, OPTIONS)
+      super(pack, OPTIONS)
       @previous = {}
       @count = 14
+      @previous = {}
       update
     end
 
