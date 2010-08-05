@@ -59,7 +59,6 @@ module Gtk2ClockApp
           tag = key.to_s
 	  remove_tag(tag)
           self.options[:font] = (key==:time)? FONT[:large]: FONT[:normal]
-puts POSITION[key].join(', ')
           x_coord, y_coord = POSITION[key]
           put(current[key], x_coord, y_coord, [tag])
           @previous[key] = current[key]

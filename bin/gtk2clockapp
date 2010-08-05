@@ -16,7 +16,7 @@ about = {
         :website        => 'http://ruby-gnome-apps.blogspot.com/search/label/Clock',
         :website_label  => 'Ruby-Gnome Apps',
         :license        => 'GPL',
-        :copyright      => '2010-08-02 10:26:30',
+        :copyright      => '2010-08-04 17:19:01',
         }
 
 program.window(about) do |window|

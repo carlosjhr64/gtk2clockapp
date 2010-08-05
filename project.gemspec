@@ -76,7 +76,7 @@ spec = Gem::Specification.new do |s|
     s.default_executable = project
   end
 
-  #s.add_dependency('xml-simple','~> 1')
+  s.add_dependency('gtk2applib','~> 7')
   #s.requirements << 'net/https'
 
   s.rubyforge_project = project
