@@ -1,15 +1,21 @@
+require 'gtk2clockapp'
+
 module Gtk2AppLib
 module Configuration
 
-  # Need the weather.com url for your area
+  IP2LOCATION	= 'http://www.geoiptool.com/'
+
+  # Need the weather url for your area
   # your area code should be enough
-  AREA_CODE	= (ARGV[0])? ARGV.shift: '89433' # <= 89433 is for Sun Valley, NV. Edit it your area code.
-  # or edit in your area's www.weather.com url
-  WEATHER_URL	= 'http://www.weather.com/weather/today/' + AREA_CODE
+  # If note given in ARGV, then will use IP2LOCATION
+  AREA_CODE	= Gtk2ClockApp.location(ARGV)
+  $stderr.puts "Area Code: #{AREA_CODE}" if $trace
+  WEATHER_URL	= 'http://www.google.com/ig/api?weather=' + AREA_CODE
+  $stderr.puts WEATHER_URL if $trace
 
   # You should not need to worry about these below, but just in case...
 
-  TEMPERATURE_MATCH = /(\d+)\s*\&deg\;/
+  TEMPERATURE_MATCH = /data="-?(\d{1,3})"/
 
   UPDATE_TIME = 60_000 # in milliseconds
 
@@ -18,23 +24,23 @@ module Configuration
   MENU[:dock]	= nil
   MENU[:help]	= nil
 
-  BACKGROUND_COLOR = COLOR[:black]
+  BACKGROUND_COLOR = Color['Black']
 
-  FONT[:normal] = Pango::FontDescription.new( 'Arial 50' )
-  FONT[:large] = Pango::FontDescription.new( 'Arial 100' )
+  FONT[:Small]	= Pango::FontDescription.new( 'Arial 26' )
+  FONT[:Normal]	= Pango::FontDescription.new( 'Arial 79' )
+  FONT[:Large]	= Pango::FontDescription.new( 'Arial 210' )
 
-  OPTIONS	= {
-	:font => FONT[:normal],
-	:fg	=>  {Gtk::STATE_NORMAL=>COLOR[:maroon]}
+  OPTIONS = {
+	:modify_fg => [Gtk::STATE_NORMAL,Color['Maroon']],
+	:modify_font=>FONT[:Normal],
   }
 
   POSITION	= {
-	:day	=> [20,20],
-	:date	=> [20,110],
-	:time	=> [30,230],
-	:temp0	=> [570,10],
-	:temp3	=> [570,80],
-	:temp4	=> [570,150],
+	:time	=> [0,   0],
+	:timep	=> [705, 210],
+	:temp	=> [25,  275],
+	:day	=> [335, 300],
+	:more	=> [25,  425],
   }
 
 end
