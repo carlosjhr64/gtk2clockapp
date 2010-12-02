@@ -36,6 +36,22 @@ module Gtk2ClockApp
     end
   end
 
+  def self.offset
+    ret = 0
+    Exception.puts_bang! do
+      data = Gtk2ClockApp.http_get(TIME_SERVER)
+      if data =~ TIMEX then
+        utc = DateTime.parse($1.strip)
+        utc = Time.utc( utc.year, utc.month, utc.day, utc.hour, utc.min, utc.sec ).to_i
+        diff = utc - Time.now.to_i
+        ret = diff.abs % 3600
+        ret = -ret	if diff < 0
+      end
+    end
+    $stderr.puts "OFFSET = #{ret}"	if $trace
+    return ret
+  end
+
   class Fixed < Widgets::Fixed
     include Gtk2AppLib::Configuration
 
@@ -69,7 +85,7 @@ module Gtk2ClockApp
         current[:temp] = 'N/A'
       end
 
-      now = Time.now
+      now = Time.now + OFFSET
       current[:day] = now.strftime("%A\n%B %d, %Y")
       current[:date] = now.strftime("%B %d, %Y")
       current[:time] = now.strftime("%I:%M").sub(/^0/,' ')

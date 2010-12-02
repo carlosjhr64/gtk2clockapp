@@ -5,6 +5,12 @@ module Configuration
 
   IP2LOCATION	= 'http://www.geoiptool.com/'
 
+  TIMEX		= /<BR>([^<>]+)UTC/
+  TIME_SERVER	= 'http://tycho.usno.navy.mil/cgi-bin/timer.pl'
+
+  # Assumes time might be upto an hour off, and uses TIME_SERVER to fix it.
+  OFFSET = Gtk2ClockApp.offset
+
   # Need the weather url for your area
   # your area code should be enough
   # If note given in ARGV, then will use IP2LOCATION
