@@ -80,9 +80,10 @@ module Gtk2ClockApp
 		" #{temperatures[2]}/#{temperatures[3]}   #{temperatures[4]}/#{temperatures[5]}   #{temperatures[6]}/#{temperatures[7]}"
           @count = 0
         end
-      rescue
+      rescue Exception
         $!.puts_bang!
-        current[:temp] = 'N/A'
+        current[:temp] = ''
+        current[:more] = ''
       end
 
       now = Time.now + OFFSET
