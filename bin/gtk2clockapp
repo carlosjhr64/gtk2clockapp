@@ -1,24 +1,23 @@
 #!/usr/bin/env ruby
 require 'rubygems'
-gem 'gtk2applib', '~> 10'
+gem 'gtk2applib', '~> 10.2'
 require 'gtk2applib'
-include Gtk2AppLib
-include Configuration
 
-program = Program.new( {
+program = Gtk2AppLib::Program.new( {
         'name'		=> 'Ruby-Gnome Clock',
         'authors'	=> ['carlosjhr64@gmail.com'],
         'website'	=> 'http://ruby-gnome-apps.blogspot.com/search/label/Clock',
         'website-label'	=> 'Ruby-Gnome Apps',
         'license'	=> 'GPL',
-        'copyright'	=> '2011-02-21 11:17:01',
+        'copyright'	=> '2011-02-23 06:18:54',
         } )
 
 begin
+  require 'gtk2clockapp'
   program.window do |window|
-     window.modify_bg(Gtk::STATE_NORMAL, BACKGROUND_COLOR)
+     window.modify_bg(Gtk::STATE_NORMAL, Gtk2ClockApp::Configuration::BACKGROUND_COLOR)
      fixed = Gtk2ClockApp::Fixed.new( window )
-     Gtk.timeout_add(UPDATE_TIME){ fixed.update }
+     Gtk.timeout_add(Gtk2ClockApp::Configuration::UPDATE_TIME){ fixed.update }
      window.show_all
   end
 rescue Exception
