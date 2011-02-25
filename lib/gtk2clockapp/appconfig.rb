@@ -4,7 +4,7 @@ module Configuration
   MENU[:close]	= nil
   MENU[:dock]	= nil
   MENU[:help]	= nil
-
+  Configuration.image(:Logo)
   FONT[:Small]	= Pango::FontDescription.new( 'Arial 26' )
   FONT[:Normal]	= Pango::FontDescription.new( 'Arial 79' )
   FONT[:Large]	= Pango::FontDescription.new( 'Arial 210' )

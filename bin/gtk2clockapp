@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 require 'rubygems'
-gem 'gtk2applib', '~> 10.2'
+gem 'gtk2applib', '~> 11.0'
 require 'gtk2applib'
 
 program = Gtk2AppLib::Program.new( {
@@ -9,7 +9,7 @@ program = Gtk2AppLib::Program.new( {
         'website'	=> 'http://ruby-gnome-apps.blogspot.com/search/label/Clock',
         'website-label'	=> 'Ruby-Gnome Apps',
         'license'	=> 'GPL',
-        'copyright'	=> '2011-02-23 06:18:54',
+        'copyright'	=> '2011-02-24 16:52:06',
         } )
 
 begin
