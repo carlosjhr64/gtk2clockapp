@@ -1,10 +1,10 @@
 module Gtk2AppLib
 module Configuration
   MENU[:fs]	= '_Fullscreen'	# fullscreen
-  MENU[:close]	= nil
+  MENU[:close]	= '_Close'
   MENU[:dock]	= nil
   MENU[:help]	= nil
-  Configuration.image(:Logo)
+  Gtk2AppLib.image([:Logo,:Icon])
   FONT[:Small]	= Pango::FontDescription.new( 'Arial 26' )
   FONT[:Normal]	= Pango::FontDescription.new( 'Arial 79' )
   FONT[:Large]	= Pango::FontDescription.new( 'Arial 210' )
