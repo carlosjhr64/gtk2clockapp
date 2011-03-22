@@ -27,6 +27,7 @@ module Gtk2ClockApp
 
       begin
         if @count > 14 then
+          @count = 0
           temperatures = nil
           Timeout::timeout(60) do
             temperatures = weather
@@ -34,7 +35,6 @@ module Gtk2ClockApp
           current[:temp] = temperatures[0]
           current[:more] =
 		" #{temperatures[2]}/#{temperatures[3]}   #{temperatures[4]}/#{temperatures[5]}   #{temperatures[6]}/#{temperatures[7]}"
-          @count = 0
         end
       rescue Exception
         $!.puts_bang!
@@ -52,7 +52,7 @@ module Gtk2ClockApp
         if current[key] && !(@previous[key] == current[key]) then
           tag = key.to_s
 	  self.remove_tag(tag) # removed_tag defined by super class
-          self.options[:modify_font] = (key==:time)? Gtk2AppLib::Configuration::FONT[:Large]: (key==:temp)? Gtk2AppLib::Configuration::FONT[:Normal]: Gtk2AppLib::Configuration::FONT[:Small]
+          self.options[:modify_font] = (key==:time)? Gtk2AppLib::Configuration::FONT[:LARGE]: (key==:temp)? Gtk2AppLib::Configuration::FONT[:NORMAL]: Gtk2AppLib::Configuration::FONT[:SMALL]
           x_coord, y_coord = Configuration::POSITION[key]
           self.put(current[key], x_coord, y_coord, [tag]) # put defined by super class
           @previous[key] = current[key]

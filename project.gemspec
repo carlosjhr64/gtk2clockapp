@@ -14,7 +14,7 @@ spec = Gem::Specification.new do |s|
   s.version = version
   s.date = Date.today.to_s
 
-  s.homepage = "http://ruby-gnome-apps.blogspot.com/search/label/#{project}"
+  s.homepage = "https://sites.google.com/site/gtk2applib/home/gtk2applib-applications/gtk2clockapp"
 
   readme = File.read('README.txt')
   if readme =~ /^=([^=\n]+)/ then
@@ -76,8 +76,8 @@ spec = Gem::Specification.new do |s|
     s.default_executable = project
   end
 
-  s.add_dependency('gtk2applib','~> 12.0')
+  s.add_dependency('gtk2applib','~> 15.0')
   s.requirements << 'gtk2'
 
-  s.rubyforge_project = project
+  #s.rubyforge_project = project
 end

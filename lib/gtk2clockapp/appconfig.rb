@@ -4,10 +4,10 @@ module Configuration
   MENU[:close]	= '_Close'
   MENU[:dock]	= nil
   MENU[:help]	= nil
-  Gtk2AppLib.image([:Logo,:Icon])
-  FONT[:Small]	= Pango::FontDescription.new( 'Arial 26' )
-  FONT[:Normal]	= Pango::FontDescription.new( 'Arial 79' )
-  FONT[:Large]	= Pango::FontDescription.new( 'Arial 210' )
+
+  FONT[:SMALL]	= Pango::FontDescription.new( 'Arial 26' )
+  FONT[:NORMAL]	= Pango::FontDescription.new( 'Arial 79' )
+  FONT[:LARGE]	= Pango::FontDescription.new( 'Arial 210' )
 end
 end
 
@@ -91,7 +91,7 @@ module Configuration
 
   OPTIONS = {
 	:modify_fg => [Gtk::STATE_NORMAL,Gtk2AppLib::Color['Maroon']],
-	:modify_font=>Gtk2AppLib::Configuration::FONT[:Normal],
+	:modify_font=>Gtk2AppLib::Configuration::FONT[:NORMAL],
   }
 
   POSITION	= {
