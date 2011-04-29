@@ -9,7 +9,7 @@ program = Gtk2AppLib::Program.new( {
         'website'	=> 'https://sites.google.com/site/gtk2applib/home/gtk2applib-applications/gtk2clockapp',
         'website-label'	=> 'Ruby-Gnome Apps',
         'license'	=> 'GPL',
-        'copyright'	=> '2011-03-22 05:51:31',
+        'copyright'	=> '2011-04-29 10:10:51',
         } )
 
 begin

@@ -18,12 +18,14 @@ require 'date'
 module Gtk2ClockApp
 
   def self.http_get(url)
-    uri = URI.parse(url)
-    Net::HTTP.start(uri.host, uri.port) do |http|
-      path_query = (uri.query)? uri.path + '?' + uri.query: uri.path
-      response = http.get(path_query)
-      raise response.message if !(response.code == '200')
-      return response.body
+    Timeout::timeout(15) do
+      uri = URI.parse(url)
+      Net::HTTP.start(uri.host, uri.port) do |http|
+        path_query = (uri.query)? uri.path + '?' + uri.query: uri.path
+        response = http.get(path_query)
+        raise response.message if !(response.code == '200')
+        return response.body
+      end
     end
   end
 

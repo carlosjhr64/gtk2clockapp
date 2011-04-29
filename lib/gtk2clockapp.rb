@@ -29,9 +29,7 @@ module Gtk2ClockApp
         if @count > 14 then
           @count = 0
           temperatures = nil
-          Timeout::timeout(60) do
-            temperatures = weather
-          end
+          temperatures = weather
           current[:temp] = temperatures[0]
           current[:more] =
 		" #{temperatures[2]}/#{temperatures[3]}   #{temperatures[4]}/#{temperatures[5]}   #{temperatures[6]}/#{temperatures[7]}"
