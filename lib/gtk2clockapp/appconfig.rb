@@ -62,9 +62,15 @@ module Gtk2ClockApp
     Exception.puts_bang! do
       data = Gtk2ClockApp.http_get(Configuration::TIME_SERVER)
       if data =~ Configuration::TIMEX then
-        utc = DateTime.parse($1.strip).to_time.to_i
-        now = Time.now.to_i
+        utc = DateTime.parse($1.strip).to_time
+        now = Time.now
+        utc = utc.sec + 60*utc.min
+        now = now.sec + 60*now.min
         ret = utc - now
+        # if more than half hour, went the wrong way.
+        if ret > 1800 then
+          ret = 3600 - ret
+        end
       end
     end
     $stderr.puts "OFFSET = #{ret}"	if $trace
