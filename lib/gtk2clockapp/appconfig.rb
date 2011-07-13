@@ -1,7 +1,10 @@
+require 'net/http'
+require 'timeout'
+require 'date'
+
 if !(DateTime.method_defined? :to_time) then
   class DateTime
     def to_time
-      Time defined, built in
       Time.mktime(self.year, self.month, self.day, self.hour, self.min, self.sec)
     end
   end
@@ -19,10 +22,6 @@ module Configuration
   FONT[:LARGE]	= Pango::FontDescription.new( 'Arial 210' )
 end
 end
-
-require 'net/http'
-require 'timeout'
-require 'date'
 
 module Gtk2ClockApp
 
