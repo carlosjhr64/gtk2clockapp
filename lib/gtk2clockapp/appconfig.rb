@@ -1,3 +1,12 @@
+if !(DateTime.method_defined? :to_time) then
+  class DateTime
+    def to_time
+      Time defined, built in
+      Time.mktime(self.year, self.month, self.day, self.hour, self.min, self.sec)
+    end
+  end
+end
+
 module Gtk2AppLib
 module Configuration
   MENU[:fs]	= '_Fullscreen'	# fullscreen
@@ -54,11 +63,9 @@ module Gtk2ClockApp
     Exception.puts_bang! do
       data = Gtk2ClockApp.http_get(Configuration::TIME_SERVER)
       if data =~ Configuration::TIMEX then
-        utc = DateTime.parse($1.strip)
-        utc = Time.utc( utc.year, utc.month, utc.day, utc.hour, utc.min, utc.sec ).to_i
-        diff = utc - Time.now.to_i
-        ret = diff.abs % 3600
-        ret = -ret	if diff < 0
+        utc = DateTime.parse($1.strip).to_time.to_i
+        now = Time.now.to_i
+        ret = utc - now
       end
     end
     $stderr.puts "OFFSET = #{ret}"	if $trace
