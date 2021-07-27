@@ -1,4 +1,8 @@
 #!/usr/bin/env ruby
+require 'help_parser'
+
+OPTIONS = HelpParser['2.0.210727']
+
 require 'rubygems'
 gem 'gtk2applib', '~> 15.0'
 require 'gtk2applib'

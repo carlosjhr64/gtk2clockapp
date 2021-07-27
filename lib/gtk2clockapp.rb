@@ -1,6 +1,5 @@
-
 module Gtk2ClockApp
-
+  VERSION = '2.0.210727'
   class Fixed < Gtk2AppLib::Widgets::Fixed
 
     def initialize(pack)
