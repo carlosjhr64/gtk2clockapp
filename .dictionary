@@ -5,6 +5,7 @@ args
 ARGV
 Arial
 carlosjhr
+CarlosJHR
 cgi
 clockapp
 ClockApp
@@ -25,13 +26,16 @@ https
 ig
 Maemo
 md
+MERCHANTABILITY
 mktime
+NONINFRINGEMENT
 Pango
 ret
 rubygems
 SINOPSIS
 stderr
 strftime
+sublicense
 timep
 tycho
 upto
