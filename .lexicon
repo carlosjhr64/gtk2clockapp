@@ -12,6 +12,7 @@ formats
 GLib
 Gtk
 Gtk2ClockApp
+gui
 Gui
 hbox
 HBOX
@@ -24,7 +25,6 @@ label
 Label
 LABEL
 length
-main
 main_quit
 MEDIUM
 medium_label
@@ -35,7 +35,6 @@ override_font
 Pango
 require
 Ruby30
-run
 seconds
 set_alert
 set_spot

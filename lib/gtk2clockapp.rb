@@ -1,7 +1,7 @@
 module Gtk2ClockApp
   VERSION = '2.0.210729'
 
-  def self.run
+  def self.gui
     require 'gtk3'
     require 'such'
     Such::Things.in Gtk::Widget

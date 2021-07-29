@@ -31,21 +31,17 @@ module Gtk2ClockApp
       @alert   = new_label(:small_label!)
 
       @window.show_all
-      Gtk.main
     end
 
     def set_weather(text)
-      # '⛅ Weather'
       @weather.set_text text
     end
 
     def set_spot(text)
-      # '🗠 Spot'
       @spot.set_text text
     end
 
     def set_alert(text)
-      # '📢 Alert'
       @alert.set_text text
     end
   end

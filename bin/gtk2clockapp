@@ -8,4 +8,21 @@ Options:
   -h --help
   -v --version
 HELP
-Gtk2ClockApp.run
+gui = Gtk2ClockApp.gui
+gui.set_weather '⛅ Weather'
+gui.set_spot '🗠 Spot'
+gui.set_alert '📢 Alert'
+Thread.new do
+  while line = $stdin.gets
+    line.chomp!
+    case line
+    when /^Weather: (.*)$/
+      gui.set_weather $1
+    when /^Spot: (.*)$/
+      gui.set_spot $1
+    else
+      gui.set_alert line
+    end
+  end
+end
+Gtk.main
