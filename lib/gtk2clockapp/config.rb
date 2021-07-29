@@ -1,8 +1,12 @@
 module Gtk2ClockApp
+  G = (1 + Math.sqrt(5))/2
+  BIG = OPTIONS.size? || 250
+  MEDIUM = (BIG*(2-G)).round
+  SMALL = (MEDIUM*(2-G)).round
   FONT = {
-    SMALL:  Pango::FontDescription.new('Arial 36'),
-    MEDIUM: Pango::FontDescription.new('Arial 96'),
-    BIG:    Pango::FontDescription.new('Arial 250'),
+    BIG:    Pango::FontDescription.new("Arial #{BIG}"),
+    MEDIUM: Pango::FontDescription.new("Arial #{MEDIUM}"),
+    SMALL:  Pango::FontDescription.new("Arial #{SMALL}"),
   }
 
   COLOR = {

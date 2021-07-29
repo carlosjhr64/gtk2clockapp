@@ -3,13 +3,17 @@ require 'gtk2clockapp'
 require 'help_parser'
 OPTIONS = HelpParser[Gtk2ClockApp::VERSION, <<HELP]
 Usage:
-  gtk2clockapp [:options]
+  gtk2clockapp [:options+]
 Options:
   -h --help
   -v --version
   --fullscreen
   --notdecorated
+  --size=INT
+Types:
+  INT /^[1-9]\\d{1,2}$/
 HELP
+HelpParser.int?(:size)
 gui = Gtk2ClockApp.gui
 gui.set_weather '' # '⛅ 75F 92F/66F'
 gui.set_spot    '' # '🗠 WUT: $500'
