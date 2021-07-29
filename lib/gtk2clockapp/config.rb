@@ -1,3 +1,47 @@
+module Gtk2ClockApp
+  FONT = {
+    SMALL:  Pango::FontDescription.new('Arial 36'),
+    MEDIUM: Pango::FontDescription.new('Arial 96'),
+    BIG:    Pango::FontDescription.new('Arial 250'),
+  }
+
+  CONFIG = {
+    time: '%l:%M %p',
+    date1: '%Y-%m-%d',
+    date2: '%A %B %e',
+
+    # Window
+    WINDOW: [],
+    window: {
+      set_title: 'Gtk2ClockApp',
+    },
+    window!: [:WINDOW, :window, 'destroy'],
+    # Vbox
+    VBOX: [:vertical],
+    vbox: {},
+    vbox!: [:VBOX, :vbox],
+    # Hbox
+    HBOX: [:horizontal],
+    hbox: {},
+    hbox!: [:HBOX, :hbox],
+    # Label
+    LABEL: [' --- '],
+    big_label: {
+      override_font: FONT[:BIG],
+    },
+    medium_label: {
+      override_font: FONT[:MEDIUM],
+    },
+    small_label: {
+      override_font: FONT[:SMALL],
+    },
+    big_label!: [:LABEL, :big_label],
+    medium_label!: [:LABEL, :medium_label],
+    small_label!: [:LABEL, :small_label],
+  }
+end
+
+=begin
 require 'net/http'
 require 'timeout'
 require 'date'
@@ -23,7 +67,6 @@ module Configuration
 end
 end
 
-module Gtk2ClockApp
 
   def self.http_get(url)
     Timeout::timeout(15) do
@@ -117,3 +160,4 @@ module Configuration
   }
 end
 end
+=end

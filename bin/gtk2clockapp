@@ -1,32 +1,11 @@
 #!/usr/bin/env ruby
+require 'gtk2clockapp'
 require 'help_parser'
-
-OPTIONS = HelpParser['2.0.210727']
-
-require 'rubygems'
-gem 'gtk2applib', '~> 15.0'
-require 'gtk2applib'
-
-program = Gtk2AppLib::Program.new( {
-        'name'		=> 'Ruby-Gnome Clock',
-        'authors'	=> ['carlosjhr64@gmail.com'],
-        'website'	=> 'https://sites.google.com/site/gtk2applib/home/gtk2applib-applications/gtk2clockapp',
-        'website-label'	=> 'Ruby-Gnome Apps',
-        'license'	=> 'GPL',
-        'copyright'	=> '2011-04-29 10:10:51',
-        } )
-
-begin
-  require 'gtk2clockapp'
-  program.window do |window|
-     window.modify_bg(Gtk::STATE_NORMAL, Gtk2ClockApp::Configuration::BACKGROUND_COLOR)
-     fixed = Gtk2ClockApp::Fixed.new( window )
-     tick = Gtk.timeout_add(Gtk2ClockApp::Configuration::UPDATE_TIME){ fixed.update }
-     window.signal_connect('destroy'){ Gtk.timeout_remove(tick) }
-     window.show_all
-  end
-rescue Exception
-  $!.puts_bang!
-ensure
-  program.finalize
-end
+HelpParser[Gtk2ClockApp::VERSION, <<HELP]
+Usage:
+  gtk2clockapp [:options]
+Options:
+  -h --help
+  -v --version
+HELP
+Gtk2ClockApp.run

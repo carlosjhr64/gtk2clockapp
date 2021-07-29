@@ -1,4 +1,55 @@
 module Gtk2ClockApp
+  class Gui
+    def now(key)
+      Time.now.strftime(CONFIG[key])
+    end
+
+    def initialize
+      window = Such::Window.new :window! do Gtk.main_quit end
+      vbox = Such::Box.new window, :vbox!
+
+      hbox = Such::Box.new vbox, :hbox!
+      date = Such::Label.new hbox, :medium_label!
+      date.set_text now(:date1)
+      dkey = 0
+      GLib::Timeout.add(5*1000) do
+        dkey = (dkey+1)%2
+        date.set_text now([:date1,:date2][dkey])
+      end
+
+      hbox = Such::Box.new vbox, :hbox!
+      time = Such::Label.new hbox, :big_label!
+      time.set_text now(:time)
+      GLib::Timeout.add(60*1000) do
+        time.set_text now(:time)
+      end
+
+      hbox = Such::Box.new vbox, :hbox!
+      weather = Such::Label.new hbox, :medium_label!
+      weather.set_text '70F 95F/66F'
+      GLib::Timeout.add(15*60*1000) do
+        weather.set_text '70F 95F/66F'
+      end
+
+      hbox = Such::Box.new vbox, :hbox!
+      spot = Such::Label.new hbox, :medium_label!
+      spot.set_text 'BTC: $40,000'
+      skey = 0
+      GLib::Timeout.add(3*1000) do
+        skey = (skey+1)%3
+        spot.set_text(['BTC: $40,000','BCH: $500', 'WMT: $100'][skey])
+      end
+
+      hbox = Such::Box.new vbox, :hbox!
+      alerts = Such::Label.new hbox, :small_label!
+      alerts.set_text 'Squirrel!!!'
+
+      window.show_all
+      Gtk.main
+    end
+  end
+end
+=begin
   class Fixed < Gtk2AppLib::Widgets::Fixed
 
     def initialize(pack)
@@ -59,4 +110,4 @@ module Gtk2ClockApp
     end
 
   end
-end
+=end
