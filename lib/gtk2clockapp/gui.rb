@@ -17,6 +17,7 @@ module Gtk2ClockApp
         i = (i+1)%formats.length
         label.set_text now(formats[i])
       end
+      label
     end
    
     def initialize
@@ -43,6 +44,18 @@ module Gtk2ClockApp
 
     def set_alert(text)
       @alert.set_text text
+    end
+
+    def day_mode
+      [@date, @time, @weather, @spot, @alert].each do |label|
+        label.override_color(:normal, Gdk::RGBA.parse(COLOR[:DAY]))
+      end
+    end
+
+    def night_mode
+      [@date, @time, @weather, @spot, @alert].each do |label|
+        label.override_color(:normal, Gdk::RGBA.parse(COLOR[:NIGHT]))
+      end
     end
   end
 end

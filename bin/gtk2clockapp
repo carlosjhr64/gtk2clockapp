@@ -20,6 +20,16 @@ Thread.new do
       gui.set_weather $1
     when /^Spot: (.*)$/
       gui.set_spot $1
+    when /^Mode: (.*)$/
+      mode = $1
+      case mode
+      when 'night'
+        gui.night_mode
+      when 'day'
+        gui.day_mode
+      else
+        $stderr.puts 'Unrecognized mode: '+mode
+      end
     else
       gui.set_alert line
     end
