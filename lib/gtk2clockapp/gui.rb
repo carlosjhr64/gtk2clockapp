@@ -22,6 +22,8 @@ module Gtk2ClockApp
    
     def initialize
       @window = Such::Window.new :window! do Gtk.main_quit end
+      @window.set_decorated !OPTIONS.notdecorated?
+      @window.fullscreen if OPTIONS.fullscreen?
       @vbox = Such::Box.new @window, :vbox!
 
       @date = time_label(:medium_label!, 5, :date1, :date2)

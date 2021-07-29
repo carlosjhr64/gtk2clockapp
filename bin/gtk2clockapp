@@ -1,12 +1,14 @@
 #!/usr/bin/env ruby
 require 'gtk2clockapp'
 require 'help_parser'
-HelpParser[Gtk2ClockApp::VERSION, <<HELP]
+OPTIONS = HelpParser[Gtk2ClockApp::VERSION, <<HELP]
 Usage:
   gtk2clockapp [:options]
 Options:
   -h --help
   -v --version
+  --fullscreen
+  --notdecorated
 HELP
 gui = Gtk2ClockApp.gui
 gui.set_weather '' # '⛅ 75F 92F/66F'
