@@ -9,9 +9,9 @@ Options:
   -v --version
 HELP
 gui = Gtk2ClockApp.gui
-gui.set_weather '⛅ Weather'
-gui.set_spot '🗠 Spot'
-gui.set_alert '📢 Alert'
+gui.set_weather '' # '⛅ 75F 92F/66F'
+gui.set_spot    '' # '🗠 WUT: $500'
+gui.set_alert   '' # '📢 Attention!'
 Thread.new do
   while line = $stdin.gets
     line.chomp!

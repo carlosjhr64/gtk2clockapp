@@ -39,12 +39,13 @@ module Gtk2ClockApp
     hbox!: [:HBOX, :hbox],
 
     # Labels
-    LABEL: [' --- '],
+    LABEL: [''],
 
     # Big label
     big_label: {
       override_font: FONT[:BIG],
       override_color: [:normal, Gdk::RGBA.parse(COLOR[:DAY])],
+      into: [:pack_start, expand: false, fill: true, padding: 20],
     },
     big_label!: [:LABEL, :big_label],
 
@@ -52,6 +53,7 @@ module Gtk2ClockApp
     medium_label: {
       override_font: FONT[:MEDIUM],
       override_color: [:normal, Gdk::RGBA.parse(COLOR[:DAY])],
+      into: [:pack_start, expand: false, fill: true, padding: 20],
     },
     medium_label!: [:LABEL, :medium_label],
 
@@ -59,6 +61,7 @@ module Gtk2ClockApp
     small_label: {
       override_font: FONT[:SMALL],
       override_color: [:normal, Gdk::RGBA.parse(COLOR[:DAY])],
+      into: [:pack_start, expand: false, fill: true, padding: 20],
     },
     small_label!: [:LABEL, :small_label],
   }
