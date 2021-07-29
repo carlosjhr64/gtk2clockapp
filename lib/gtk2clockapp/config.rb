@@ -4,6 +4,7 @@ module Gtk2ClockApp
     MEDIUM: Pango::FontDescription.new('Arial 96'),
     BIG:    Pango::FontDescription.new('Arial 250'),
   }
+#        window.modify_bg(Gtk::STATE_NORMAL, Gtk2ClockApp::Configuration::BACKGROUND_COLOR)
 
   CONFIG = {
     time: '%l:%M %p',

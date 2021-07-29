@@ -4,9 +4,7 @@ areacode
 args
 ARGV
 Arial
-BCH
 bg
-BTC
 carlosjhr
 CarlosJHR
 cgi
@@ -14,9 +12,7 @@ clockapp
 ClockApp
 config
 CONFIG
-coord
 DateTime
-dkey
 fg
 FontDescription
 fs
@@ -25,8 +21,6 @@ Fullscreen
 geoiptool
 github
 GLib
-gmail
-GPL
 gsub
 gtk
 Gtk
@@ -39,7 +33,6 @@ http
 https
 ig
 Maemo
-md
 MERCHANTABILITY
 mktime
 NONINFRINGEMENT
@@ -47,7 +40,6 @@ Pango
 ret
 rubygems
 SINOPSIS
-skey
 stderr
 strftime
 sublicense
@@ -62,5 +54,4 @@ utc
 vbox
 Vbox
 VBOX
-WMT
 www
