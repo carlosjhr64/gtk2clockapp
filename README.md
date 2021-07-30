@@ -9,9 +9,13 @@
 A clock/bulletin board with a STDIN interface.
 
 It's up to the user to wrap `gtk2clockapp` to provide additional functionality besides the clock.
-It's assumes it'll get weather info, spot prices, and alerts... but
-one one can put anything in those labels.
+It assumes it'll get weather info, spot prices, and alerts... but
+one can put anything in those labels.
 
+## INSTALL:
+```shell
+$ gem install gtk2clockapp
+```
 ## SINOPSIS
 ```shell
 $ gtk2clockapp
