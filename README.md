@@ -30,7 +30,7 @@ Mode: night
 ```
 ![Night Mode](img/night.png)
 ## HELP:
-```
+```shell
 $ gtk2clockapp --help
 Usage:
   gtk2clockapp [:options+]
@@ -39,11 +39,11 @@ Options:
   -v --version
   --fullscreen
   --notdecorated
-  --size=INT         	250
-  --font=NAME        	Courier
-  --background=COLOR 	000000
-  --day=COLOR        	00FF00
-  --night=COLOR      	3F0000
+  --size=INT         	 250
+  --font=NAME        	 Courier
+  --background=COLOR 	 000000
+  --day=COLOR        	 00FF00
+  --night=COLOR      	 3F0000
 Types:
   INT   /^[1-9]\d{1,2}$/
   NAME  /^[A-Z][a-z]+( w+)*$/
