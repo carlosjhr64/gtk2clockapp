@@ -1,0 +1,2 @@
+# 2.0.210730 / 2021-07-30 12:30:00 -0700
+6b2aa8f6d18ddaccd7d20555aed155da  pkg/gtk2clockapp-2.0.210730.gem
