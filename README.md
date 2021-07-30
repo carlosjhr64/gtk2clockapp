@@ -6,14 +6,45 @@
 
 ## DESCRIPTION:
 
-A nice clock for Maemo, with temperatures from google.com.
+A clock/bulletin board with a STDIN interface.
+
+It's up to the user to wrap `gtk2clockapp` to provide additional functionality besides the clock.
+It's assumes it'll get weather info, spot prices, and alerts... but
+one one can put anything in those labels.
 
 ## SINOPSIS
-
-    gtk2clockapp <areacode, or city and state >
-
-Unless given the location, gtk2clockapp will attempt to locate by IP.
-
+```shell
+$ gtk2clockapp
+Mode: day
+Weather: ⛅ 75F 92F/66F
+Spot: 🗠 BCH: $5,000
+ 🐿 🐿 🐿 Squirrel!!! 🐿 🐿 🐿 
+```
+![Day Mode](img/day.png)
+```shell
+Mode: night
+```
+![Night Mode](img/night.png)
+## HELP:
+```
+$ gtk2clockapp --help
+Usage:
+  gtk2clockapp [:options+]
+Options:
+  -h --help
+  -v --version
+  --fullscreen
+  --notdecorated
+  --size=INT         	250
+  --font=NAME        	Courier
+  --background=COLOR 	000000
+  --day=COLOR        	00FF00
+  --night=COLOR      	3F0000
+Types:
+  INT   /^[1-9]\d{1,2}$/
+  NAME  /^[A-Z][a-z]+( w+)*$/
+  COLOR /^[0-9ABCDEF]{6}$/
+```
 ## LICENSE:
 
 (The MIT License)
