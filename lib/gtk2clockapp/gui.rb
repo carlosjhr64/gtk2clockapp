@@ -26,8 +26,8 @@ module Gtk2ClockApp
       @window.fullscreen if OPTIONS.fullscreen?
       @vbox = Such::Box.new @window, :vbox!
 
-      @date = time_label(:medium_label!, 5, :date1, :date2)
-      @time = time_label(:big_label!, 60, :time)
+      @date = time_label(:medium_label!, 5, :DateA, :DateB)
+      @time = time_label(:big_label!, 60, :Time)
 
       @weather = new_label(:medium_label!)
       @spot    = new_label(:medium_label!)
@@ -54,13 +54,13 @@ module Gtk2ClockApp
 
     def day_mode
       labels.each do |label|
-        label.override_color(:normal, Gdk::RGBA.parse(COLOR[:DAY]))
+        label.override_color(:normal, CONFIG[:Day])
       end
     end
 
     def night_mode
       labels.each do |label|
-        label.override_color(:normal, Gdk::RGBA.parse(COLOR[:NIGHT]))
+        label.override_color(:normal, CONFIG[:Night])
       end
     end
   end

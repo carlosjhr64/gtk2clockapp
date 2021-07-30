@@ -1,6 +1,6 @@
 # Gtk2ClockApp
 
-* [VERSION 2.0.210729](https://github.com/carlosjhr64/gtk2clockapp/releases)
+* [VERSION 2.0.210730](https://github.com/carlosjhr64/gtk2clockapp/releases)
 * [github](https://github.com/carlosjhr64/gtk2clockapp)
 * [rubygems](https://rubygems.org/gems/gtk2clockapp)
 

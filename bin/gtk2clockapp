@@ -9,9 +9,15 @@ Options:
   -v --version
   --fullscreen
   --notdecorated
-  --size=INT
+  --size=INT         \t 250
+  --font=NAME        \t Courier
+  --background=COLOR \t 000000
+  --day=COLOR        \t 00FF00
+  --night=COLOR      \t 3F0000
 Types:
-  INT /^[1-9]\\d{1,2}$/
+  INT   /^[1-9]\\d{1,2}$/
+  NAME  /^[A-Z][a-z]+( \w+)*$/
+  COLOR /^[0-9ABCDEF]{6}$/
 HELP
 HelpParser.int?(:size)
 gui = Gtk2ClockApp.gui
@@ -28,7 +34,7 @@ Thread.new do
       gui.set_spot $1
     when /^Mode: (.*)$/
       mode = $1
-      case mode
+      case mode.downcase
       when 'night'
         gui.night_mode
       when 'day'

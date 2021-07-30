@@ -1,34 +1,39 @@
 module Gtk2ClockApp
-  G = (1 + Math.sqrt(5))/2
-  BIG = OPTIONS.size? || 250
-  MEDIUM = (BIG*(2-G)).round
-  SMALL = (MEDIUM*(2-G)).round
-  FONT = {
-    BIG:    Pango::FontDescription.new("Arial #{BIG}"),
-    MEDIUM: Pango::FontDescription.new("Arial #{MEDIUM}"),
-    SMALL:  Pango::FontDescription.new("Arial #{SMALL}"),
+  OPTIONS ||= nil
+
+  g      = 2 - (1 + Math.sqrt(5))/2
+  big    = OPTIONS&.size? || 250
+  medium = (big*g).round
+  small  = (big*g*g).round
+  pad    = (big*g*g*g).round
+
+  fontname = OPTIONS&.font || 'Courier'
+  font = {
+    BIG:    Pango::FontDescription.new("#{fontname} #{big}"),
+    MEDIUM: Pango::FontDescription.new("#{fontname} #{medium}"),
+    SMALL:  Pango::FontDescription.new("#{fontname} #{small}"),
   }
 
-  COLOR = {
-    BACKGROUND: '#000000',
-    DAY:        '#00FF00',
-    NIGHT:      '#3F0000',
+  color = {
+    Background: '#'+(OPTIONS&.background || '000000'),
+    Day:        '#'+(OPTIONS&.day        || '00FF00'),
+    Night:      '#'+(OPTIONS&.night      || '3F0000'),
   }
 
   CONFIG = {
-    time:  '%l:%M %p',
-    date1: '%Y-%m-%d',
-    date2: '%A %B %e',
+    Time:  '%l:%M %p',
+    DateA: '%Y-%m-%d',
+    DateB: '%A %B %e',
 
-    background: COLOR[:BACKGROUND],
-    day:        COLOR[:DAY],
-    night:      COLOR[:NIGHT],
+    Background: color[:Background],
+    Day:        color[:Day],
+    Night:      color[:Night],
 
     # Window
     WINDOW: [],
     window: {
       set_title: 'Gtk2ClockApp',
-      override_background_color: [:normal, Gdk::RGBA.parse(COLOR[:BACKGROUND])],
+      override_background_color: [:normal, color[:Background]],
     },
     window!: [:WINDOW, :window, 'destroy'],
 
@@ -47,25 +52,25 @@ module Gtk2ClockApp
 
     # Big label
     big_label: {
-      override_font: FONT[:BIG],
-      override_color: [:normal, Gdk::RGBA.parse(COLOR[:DAY])],
-      into: [:pack_start, expand: false, fill: true, padding: 20],
+      override_font: font[:BIG],
+      override_color: [:normal, color[:Day]],
+      into: [:pack_start, expand: false, fill: true, padding: pad],
     },
     big_label!: [:LABEL, :big_label],
 
     # Medium label
     medium_label: {
-      override_font: FONT[:MEDIUM],
-      override_color: [:normal, Gdk::RGBA.parse(COLOR[:DAY])],
-      into: [:pack_start, expand: false, fill: true, padding: 20],
+      override_font: font[:MEDIUM],
+      override_color: [:normal, color[:Day]],
+      into: [:pack_start, expand: false, fill: true, padding: pad],
     },
     medium_label!: [:LABEL, :medium_label],
 
     # Small label
     small_label: {
-      override_font: FONT[:SMALL],
-      override_color: [:normal, Gdk::RGBA.parse(COLOR[:DAY])],
-      into: [:pack_start, expand: false, fill: true, padding: 20],
+      override_font: font[:SMALL],
+      override_color: [:normal, color[:Day]],
+      into: [:pack_start, expand: false, fill: true, padding: pad],
     },
     small_label!: [:LABEL, :small_label],
   }
