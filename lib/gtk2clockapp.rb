@@ -11,3 +11,5 @@ module Gtk2ClockApp
     Gui.new
   end
 end
+# Requires:
+#`ruby`
