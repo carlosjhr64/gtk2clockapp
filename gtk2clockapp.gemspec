@@ -35,5 +35,6 @@ lib/gtk2clockapp/gui.rb
   s.add_runtime_dependency 'help_parser', '~> 7.0', '>= 7.0.200907'
   s.add_runtime_dependency 'gtk3', '~> 3.4', '>= 3.4.6'
   s.add_runtime_dependency 'such', '~> 2.0', '>= 2.0.210201'
+  s.requirements << 'ruby: ruby 3.0.2p107 (2021-07-07 revision 0db68f0233) [x86_64-linux]'
 
 end
