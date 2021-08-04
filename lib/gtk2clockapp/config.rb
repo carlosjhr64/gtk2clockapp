@@ -44,7 +44,9 @@ module Gtk2ClockApp
 
     # Hbox
     HBOX: [:horizontal],
-    hbox: {},
+    hbox: {
+      into: [:pack_start, expand: false, fill: true, padding: pad],
+    },
     hbox!: [:HBOX, :hbox],
 
     # Labels
