@@ -58,6 +58,12 @@ module Gtk2ClockApp
       end
     end
 
+    def dusk_mode
+      labels.each do |label|
+        label.override_color(:normal, CONFIG[:Dusk])
+      end
+    end
+
     def night_mode
       labels.each do |label|
         label.override_color(:normal, CONFIG[:Night])

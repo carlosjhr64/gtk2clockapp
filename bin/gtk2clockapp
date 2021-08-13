@@ -13,6 +13,7 @@ Options:
   --font=NAME        \t Courier
   --background=COLOR \t 000000
   --day=COLOR        \t 00FF00
+  --dusk=COLOR       \t FF0000
   --night=COLOR      \t 3F0000
 Types:
   INT   /^[1-9]\\d{1,2}$/
@@ -28,17 +29,19 @@ Thread.new do
   while line = $stdin.gets
     line.chomp!
     case line
-    when /^Weather: (.*)$/
-      gui.set_weather $1
-    when /^Spot: (.*)$/
-      gui.set_spot $1
-    when /^Mode: (.*)$/
-      mode = $1
+    when /^Weather:(.*)$/
+      gui.set_weather $1.strip
+    when /^Spot:(.*)$/
+      gui.set_spot $1.strip
+    when /^Mode:(.*)$/
+      mode = $1.strip
       case mode.downcase
-      when 'night'
-        gui.night_mode
       when 'day'
         gui.day_mode
+      when 'dusk'
+        gui.dusk_mode
+      when 'night'
+        gui.night_mode
       else
         $stderr.puts 'Unrecognized mode: '+mode
       end
