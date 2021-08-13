@@ -17,7 +17,7 @@ module Gtk2ClockApp
   color = {
     Background: '#'+(OPTIONS&.background || '000000'),
     Day:        '#'+(OPTIONS&.day        || '00FF00'),
-    Dusk:       '#'+(OPTIONS&.night      || 'FF0000'),
+    Dusk:       '#'+(OPTIONS&.dusk       || 'FF0000'),
     Night:      '#'+(OPTIONS&.night      || '3F0000'),
   }
 
