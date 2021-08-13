@@ -43,6 +43,7 @@ Options:
   --font=NAME        	 Courier
   --background=COLOR 	 000000
   --day=COLOR        	 00FF00
+  --dusk=COLOR       	 FF0000
   --night=COLOR      	 3F0000
 Types:
   INT   /^[1-9]\d{1,2}$/
