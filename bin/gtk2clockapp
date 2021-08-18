@@ -49,5 +49,6 @@ Thread.new do
       gui.set_alert line
     end
   end
+  exit
 end
 Gtk.main
