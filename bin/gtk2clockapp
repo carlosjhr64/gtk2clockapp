@@ -24,15 +24,13 @@ HelpParser.int?(:size)
 gui = Gtk2ClockApp.gui
 Thread.new do
   now = lambda {|key| Time.now.strftime(Gtk2ClockApp::CONFIG[key])}
-  gui.set_date now[:DateA]
-  gui.set_time now[:Time]
   loop do
-    sleep(60 - Time.now.sec)
     gui.set_date now[:DateB]
     gui.set_time now[:Time]
+    sleep(60 - Time.now.sec)
     11.times do |i|
-      sleep 5
       gui.set_date now[[:DateA, :DateB][i%2]]
+      sleep 5
     end
   end
 end
