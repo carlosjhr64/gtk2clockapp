@@ -2,7 +2,7 @@ module Gtk2ClockApp
   OPTIONS ||= nil
 
   g      = 2 - (1 + Math.sqrt(5))/2
-  big    = OPTIONS&.size? || 250
+  big    = OPTIONS&.size? || 186
   medium = (big*g).round
   small  = (big*g*g).round
   pad    = (big*g*g*g).round

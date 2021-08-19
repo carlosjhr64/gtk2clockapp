@@ -5,13 +5,13 @@ require 'colorize'
 
 class TestLexicon < Test::Unit::TestCase
   def test_dictionary
-    system('fish', '-c', %q(cat README.md lib/**.rb | egrep -o '\w+' | sort -u | spell > tmp/dictionary))
+    system('fish', '-c', %q(cat README.md bin/gtk2clockapp lib/**.rb | egrep -o '\w+' | sort -u | spell > tmp/dictionary))
     diff = `colordiff .dictionary tmp/dictionary`.strip
     flunk 'Dictionary changed:'.colorize(:blue)+"\n"+diff unless diff.empty?
   end
 
   def test_lexicon
-    system %q(ruby-parse lib | egrep -o ':\w+' | sort -u | egrep -o '\w+' > tmp/lexicon)
+    system %q(ruby-parse lib bin/gtk2clockapp | egrep -o ':\w+' | sort -u | egrep -o '\w+' > tmp/lexicon)
     diff = `colordiff .lexicon tmp/lexicon`.strip
     flunk 'Code lexicon changed:'.colorize(:blue)+"\n"+diff unless diff.empty?
   end

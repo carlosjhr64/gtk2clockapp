@@ -1,23 +1,8 @@
 module Gtk2ClockApp
   class Gui
-    def now(key)
-      Time.now.strftime(CONFIG[key])
-    end
-
     def new_label(key)
       hbox = Such::Box.new @vbox, :hbox!
       Such::Label.new hbox, key
-    end
-
-    def time_label(key, seconds, *formats)
-      label = new_label(key)
-      i = 0
-      label.set_text now(formats[i])
-      GLib::Timeout.add(seconds*1000) do
-        i = (i+1)%formats.length
-        label.set_text now(formats[i])
-      end
-      label
     end
    
     def initialize
@@ -26,14 +11,21 @@ module Gtk2ClockApp
       @window.fullscreen if OPTIONS.fullscreen?
       @vbox = Such::Box.new @window, :vbox!
 
-      @date = time_label(:medium_label!, 5, :DateA, :DateB)
-      @time = time_label(:big_label!, 60, :Time)
-
+      @date    = new_label(:medium_label!)
+      @time    = new_label(:big_label!)
       @weather = new_label(:medium_label!)
       @spot    = new_label(:medium_label!)
       @alert   = new_label(:small_label!)
 
       @window.show_all
+    end
+
+    def set_date(text)
+      @date.set_text text
+    end
+
+    def set_time(text)
+      @time.set_text text
     end
 
     def set_weather(text)

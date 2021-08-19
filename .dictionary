@@ -8,11 +8,12 @@ config
 CONFIG
 DateA
 DateB
+downcase
+env
 FontDescription
 fontname
 fullscreen
 github
-GLib
 gtk
 Gtk
 gui
@@ -20,6 +21,7 @@ Gui
 hbox
 Hbox
 HBOX
+HelpParser
 https
 img
 MERCHANTABILITY
@@ -30,9 +32,13 @@ png
 rubygems
 SINOPSIS
 sqrt
+stderr
+stdin
 STDIN
 strftime
 sublicense
+usr
 vbox
 Vbox
 VBOX
+WUT

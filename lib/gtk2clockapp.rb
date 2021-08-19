@@ -1,5 +1,5 @@
 module Gtk2ClockApp
-  VERSION = '2.1.210818'
+  VERSION = '2.1.210819'
 
   def self.gui
     require 'gtk3'
