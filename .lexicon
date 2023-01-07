@@ -75,7 +75,7 @@ Pango
 puts
 require
 round
-Ruby30
+Ruby32
 sec
 set_alert
 set_date

@@ -1,6 +1,6 @@
 # Gtk2ClockApp
 
-* [VERSION 2.1.210819](https://github.com/carlosjhr64/gtk2clockapp/releases)
+* [VERSION 2.1.230107](https://github.com/carlosjhr64/gtk2clockapp/releases)
 * [github](https://github.com/carlosjhr64/gtk2clockapp)
 * [rubygems](https://rubygems.org/gems/gtk2clockapp)
 
@@ -54,7 +54,7 @@ Types:
 
 (The MIT License)
 
-Copyright (c) 2021 CarlosJHR64
+Copyright (c) 2023 CarlosJHR64
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
