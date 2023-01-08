@@ -12,3 +12,5 @@ fb1b85a6fe7473ca9e356a8d2c474ed6  pkg/gtk2clockapp-2.1.210818.gem
 dd024f545be65bf6de03e820f8a5dad9  pkg/gtk2clockapp-2.1.210819.gem
 # 2.2.230107 / 2023-01-08 09:18:27 -0800
 84b7a46101ed6f766c2e94e6194f25fa  pkg/gtk2clockapp-2.2.230107.gem
+# 2.2.230108 / 2023-01-08 10:52:13 -0800
+e7d1cfcfbaa955dba0703e8ef23622c1  pkg/gtk2clockapp-2.2.230108.gem
