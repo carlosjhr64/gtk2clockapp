@@ -2,29 +2,16 @@
 require 'test/unit'
 require 'gtk3'
 require 'gtk2clockapp/config'
+require 'such/convention'
 
 class TestConfig < Test::Unit::TestCase
   include Gtk2ClockApp
-
   def test_config
-    # Checking convention use
-    CONFIG.each do |k,v|
-      msg = "#{k}: #{v.inspect}"
-      case k
-      when /^[A-Z_]+$/    # CAPS => Array of args
-        assert_equal Array, v.class, msg
-      when /^[a-z_]+$/    # lower => Hash of key to args
-        assert_equal Hash, v.class, msg
-      when /^[a-z_]+\!$/  # lower! => Array of keys
-        assert_equal Array, v.class, msg
-      when /^[a-zA-Z]+$/  # Camel => String|Numeric
-        assert((v.class==String) || (v.kind_of? Numeric), msg)
-      when /^[a-zA-Z]+!$/ # Camel! => Hash of key to configurable value
-        assert_equal Hash, v.class, msg
-      else
-        raise "Got bad thing key :#{k}."
-      end
-    end
+    # These keys map to non-standard `Pango` items...
+    exception_keys = [:big_label,:medium_label,:small_label]
+    exception_keys.all?{CONFIG[_1].is_a?Hash}
+    exception = Such::Convention.validate(CONFIG)
+    assert_equal exception_keys, exception.keys
   end
 end
 

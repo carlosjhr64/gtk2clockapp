@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
 
   s.name     = 'gtk2clockapp'
-  s.version  = '2.1.230107'
+  s.version  = '2.2.230107'
 
   s.homepage = 'https://github.com/carlosjhr64/gtk2clockapp'
 
