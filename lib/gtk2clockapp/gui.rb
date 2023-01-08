@@ -20,11 +20,11 @@ module Gtk2ClockApp
       @window.show_all
     end
 
-    def set_date(text)    = @date.set_text text
-    def set_time(text)    = @time.set_text text
-    def set_weather(text) = @weather.set_text text
-    def set_spot(text)    = @spot.set_text text
-    def set_alert(text)   = @alert.set_text text
+    def set_date(text)    = @date.set_text(text)
+    def set_time(text)    = @time.set_text(text)
+    def set_weather(text) = @weather.set_text(text)
+    def set_spot(text)    = @spot.set_text(text)
+    def set_alert(text)   = @alert.set_text(text)
     def labels     = [@date, @time, @weather, @spot, @alert]
     def day_mode   = labels.each{_1.override_color(:normal,CONFIG[:Day])}
     def dusk_mode  = labels.each{_1.override_color(:normal,CONFIG[:Dusk])}
