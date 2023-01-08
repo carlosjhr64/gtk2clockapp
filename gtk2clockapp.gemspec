@@ -5,7 +5,7 @@ Gem::Specification.new do |s|
 
   s.homepage = 'https://github.com/carlosjhr64/gtk2clockapp'
 
-  s.author   = 'carlosjhr64'
+  s.author   = 'CarlosJHR64'
   s.email    = 'carlosjhr64@gmail.com'
 
   s.date     = '2023-01-07'
@@ -32,9 +32,9 @@ lib/gtk2clockapp/config.rb
 lib/gtk2clockapp/gui.rb
   )
   s.executables << 'gtk2clockapp'
-  s.add_runtime_dependency 'help_parser', '~> 7.0', '>= 7.0.200907'
-  s.add_runtime_dependency 'gtk3', '~> 3.4', '>= 3.4.6'
-  s.add_runtime_dependency 'such', '~> 2.0', '>= 2.0.210201'
+  s.add_runtime_dependency 'help_parser', '~> 8.1', '>= 8.1.221206'
+  s.add_runtime_dependency 'gtk3', '~> 4.0', '>= 4.0.5'
+  s.add_runtime_dependency 'such', '~> 2.1', '>= 2.1.230106'
   s.requirements << 'ruby: ruby 3.2.0 (2022-12-25 revision a528908271) [aarch64-linux]'
 
 end
